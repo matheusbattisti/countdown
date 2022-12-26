@@ -32,7 +32,7 @@ const Countdown = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <h2>Monte a sua contagem regressiva!</h2>
       <form className="countdown-form" onSubmit={handleSubmit}>
         <label>
