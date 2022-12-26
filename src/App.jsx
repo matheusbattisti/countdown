@@ -1,15 +1,29 @@
-import useCountdown from "./hooks/useCountdown";
+import { Outlet } from "react-router-dom";
+
+import { useContext } from "react";
+
+import { CountdownContext } from "./context/CountdownContext";
 
 import NewYear from "./assets/newyear.jpg";
 
 import "./App.css";
-import { Outlet } from "react-router-dom";
 
 function App() {
-  const [day, hour, minute, second] = useCountdown("Jan 1, 2023 00:00:00");
+  const { event } = useContext(CountdownContext);
+
+  let eventImage = null;
+
+  if (event) eventImage = event.image;
 
   return (
-    <div className="App" style={{ backgroundImage: `url(${NewYear})` }}>
+    <div
+      className="App"
+      style={
+        eventImage
+          ? { backgroundImage: `url(${eventImage})` }
+          : { backgroundImage: `url(${NewYear})` }
+      }
+    >
       <div className="container">
         <Outlet />
       </div>

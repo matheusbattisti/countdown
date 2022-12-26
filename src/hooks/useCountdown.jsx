@@ -8,6 +8,7 @@ const useCountdown = (date) => {
 
   const countdown = () => {
     const countDate = new Date(date).getTime();
+
     const now = new Date().getTime();
 
     const gap = countDate - now;
